@@ -19,7 +19,6 @@ async function addTodo(req, res, next) {
   const todo = new Todo(todoText);
 
   let insertedId;
-
   try {
     const result = await todo.save();
     insertedId = result.insertedId;
@@ -29,7 +28,7 @@ async function addTodo(req, res, next) {
 
   todo.id = insertedId.toString();
 
-  res.json({ message: "Added todo succesfuly!", createdTodo: todo });
+  res.json({ message: "Added todo successfully!", createdTodo: todo });
 }
 
 async function updateTodo(req, res, next) {
@@ -41,10 +40,10 @@ async function updateTodo(req, res, next) {
   try {
     await todo.save();
   } catch (error) {
-    return next(error)
+    return next(error);
   }
-  
-  res.json({message: "Todo updated!", updatedTodo: todo});
+
+  res.json({ message: "Todo updated", updatedTodo: todo });
 }
 
 async function deleteTodo(req, res, next) {
@@ -55,10 +54,10 @@ async function deleteTodo(req, res, next) {
   try {
     await todo.delete();
   } catch (error) {
-    return next(error)
+    return next(error);
   }
-  
-  res.json({message: "Todo deleted!"});
+
+  res.json({ message: "Todo deleted" });
 }
 
 module.exports = {
