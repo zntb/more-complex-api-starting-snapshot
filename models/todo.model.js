@@ -39,7 +39,7 @@ class Todo {
     }
     const todoId = new mongodb.ObjectId(this.id);
 
-    return db.getDb().collection("todos").deletwOne({ _id: todoId });
+    return db.getDb().collection("todos").deleteOne({ _id: todoId });
   }
 }
 
